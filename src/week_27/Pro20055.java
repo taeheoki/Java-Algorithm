@@ -50,7 +50,6 @@ public class Pro20055 {
                             K--;
                     }
                 }
-
             }
 //            System.out.print(cnt + " : ");
 //            for (int i = 0; i < 2 * N ; i++) {
