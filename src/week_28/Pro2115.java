@@ -3,6 +3,7 @@ package src.week_28;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -24,34 +25,51 @@ public class Pro2115 {
                 map[i][j] = tmp.charAt(j);
             }
         }
-//        dfs(0, 0, 0);
+        pro();
+        System.out.println(res);
     }
 
-//    private static void dfs(int r, int c, int cnt) {
-//        if (r == N) {
-//            res = Math.max(res, cnt);
-//            return;
-//        }
-//        int nr = r;
-//        int nc = c + 1;
-//        if (nc == M)
-//        if (c + 1 == M) {
-//            nr += 1;
-//            nc = 0;
-//        }
-//        dfs(nr, nc, cnt);
-//        if (map[r][c] == '.') {
-//            // 오른쪽 한칸 체크 (상하)
-//            if (c + 1 < M && map[r][c + 1] == '.') {
-//                if (r - 1 >= 0 && map[r - 1][c] == 'X' && map[r - 1][c + 1] == 'X') {
-//                    dfs(nr, nc, cnt + 1);
-//                }
-//                if (r + 1 < M && map[r + 1][c] == 'X' && map[r - 1][c + 1] == 'X')
-//            }
-//            // 아래 한칸 체크 (좌우)
-//            if (r + 1 < M && map[r + 1][c] == '.') {
-//
-//            }
-//        }
-//    }
+    private static void pro() {
+        // 윗벽, 아랫벽
+        for (int i = 1; i < M - 1; i++) {
+            int leftCnt = 0;
+            int rightCnt = 0;
+            for (int j = 1; j < N - 1; j++) {
+                if (map[i - 1][j] == 'X' && map[i][j] == '.') {
+                    leftCnt++;
+                } else {
+                    res += leftCnt / 2;
+                    leftCnt = 0;
+                }
+                if (map[i + 1][j] == 'X' && map[i][j] == '.') {
+                    rightCnt++;
+                } else {
+                    res += rightCnt / 2;
+                    rightCnt = 0;
+                }
+            }
+            res += leftCnt / 2 + rightCnt / 2;
+        }
+
+        // 윗벽, 아래쪽벽
+        for (int i = 1; i < N - 1; i++) {
+            int upCnt = 0;
+            int downCnt = 0;
+            for (int j = 1; j < M - 1; j++) {
+                if (map[j][i - 1] == 'X' && map[j][i] == '.') {
+                    upCnt++;
+                } else {
+                    res += upCnt / 2;
+                    upCnt = 0;
+                }
+                if (map[j][i + 1] == 'X' && map[j][i] == '.') {
+                    downCnt++;
+                } else {
+                    res += downCnt / 2;
+                    downCnt = 0;
+                }
+            }
+            res += upCnt / 2 + downCnt / 2;
+        }
+    }
 }
