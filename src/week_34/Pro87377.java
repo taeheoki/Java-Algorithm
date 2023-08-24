@@ -2,6 +2,7 @@ package src.week_34;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 
 /**
  * 프로그래머스 - 교점에 별 만들기
@@ -49,7 +50,6 @@ public class Pro87377 {
                 }
             }
         }
-        StringBuilder[] sbArr = new StringBuilder[(int) (yMax - yMin + 1)];
         char[][] res = new char[(int) (yMax - yMin + 1)][(int) (xMax - xMin + 1)];
         for (int i = 0; i < res.length; i++)
             Arrays.fill(res[i], '.');

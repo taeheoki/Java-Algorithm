@@ -1,14 +1,15 @@
 package src.week_34;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 프로그래머스  - 후보키
  */
 public class Pro42890 {
 
-    static int res;
-    static boolean[] used;
+    static int n, res;
     static String[][] copyRelation;
 
     public static void main(String[] args) {
@@ -16,9 +17,21 @@ public class Pro42890 {
     }
 
     public static int solution(String[][] relation) {
-        used = new boolean[relation[0].length];
         copyRelation = relation;
-//        rec_func(0, )
+        Set<String[]> set = new HashSet<>();
+        n = 1 << relation[0].length;
+        for (int i = 0; i < n; i++) {
+            pro(set, i);
+            set.clear();
+        }
         return res;
+    }
+
+    private static void pro(Set<String[]> set, int index) {
+        ArrayList<String> arr = new ArrayList<>();
+        for (int i = 0; i < copyRelation.length; i++) {
+            for (int j = 0; j < copyRelation[0].length; i++) {
+            }
+        }
     }
 }
