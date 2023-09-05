@@ -1,4 +1,4 @@
-package src.week_35;
+package src.week_36;
 
 import java.io.BufferedReader;
 import java.io.IOException;
