@@ -2,7 +2,9 @@ package src.week_42;
 
 public class Test {
     public static void main(String[] args) {
-        HelloService hello = HelloService.helloService("hello");
-        System.out.println(hello.hello());
+        char[] chs = {'a', 'b', 'c', 'd'};
+        String abc = "abc";
+        System.out.printf("%s\n", chs);
+        System.out.printf("%s\n", abc);
     }
 }
